@@ -29,13 +29,19 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
+   
 
-const Image = mongoose.model("Image", {
-  age: Number,
-  kesukaan: [String], // Store an array of kesukaan
-  name: String,
-  images: [String], // Store an array of image filenames
-});
+const Image = mongoose.model("Image",{ 
+   
+    age: Number,
+    kesukaan: [String], // Store an array of kesukaan
+    name: String,
+    images: [String]
+  
+
+
+  // Store an array of image filenames
+  });
 
 // Route to upload an image
 app.post("/upload", upload.array("images"), async (req, res) => {
@@ -44,11 +50,14 @@ app.post("/upload", upload.array("images"), async (req, res) => {
   }
 
   const newImage = new Image({
+   
     age: req.body.age,
     kesukaan: req.body.kesukaan,
     name: req.body.name,
-    images: req.files.map((file) => file.filename), // Store an array of image filenames
-  });
+    images: req.files.map((file) => file.filename)  
+ 
+     // Store an array of image filenames
+});
 
   try {
     await newImage.save();

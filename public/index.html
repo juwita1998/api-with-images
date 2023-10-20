@@ -14,25 +14,31 @@
             const imageContainer = document.getElementById("image-container");
 
             // Fetch image data from your server
-            fetch("/images")
+            fetch("http://localhost:5000/images")
                 .then((response) => response.json())
                 .then((data) => {
-                    data.forEach((image) => {
-                       
-                        const h1 = document.createElement("h1");
-                        h1.textContent = `Name: ${image.name}, Age: ${image.age}`;
-                         imageContainer.appendChild(h1)
                       
-                          const img = document.createElement("img");
-                        img.src = `${image.images[2]}`; // Display the first image from the array
+                  
+                        
+                          
+                        const h1 = document.createElement("h1");
+                        h1.textContent = `Name: ${data[1].name}, Age: ${data[1].age}`;
+                         imageContainer.appendChild(h1)
+                           
+                          
+                            const img = document.createElement("img");
+                        img.src = `${data[1].images[0]}`; // Display the first image from the array
                         
                        
                         
                         imageContainer.appendChild(img);
+                          
+                      
+                          
                         
 
                        
-                    });
+                    
                 })
                 .catch((error) => {
                     console.error("Error fetching images:", error);
