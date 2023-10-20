@@ -14,7 +14,7 @@
             const imageContainer = document.getElementById("image-container");
 
             // Fetch image data from your server
-            fetch("http://localhost:5000/images")
+            fetch("/images")
                 .then((response) => response.json())
                 .then((data) => {
                       
@@ -27,7 +27,7 @@
                            
                           
                             const img = document.createElement("img");
-                        img.src = `${data[1].images[0]}`; // Display the first image from the array
+                        img.src = `${data[0].images[0]}`; // Display the first image from the array
                         
                        
                         
