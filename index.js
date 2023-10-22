@@ -32,14 +32,10 @@ const upload = multer({ storage: storage });
    
 
 const Image = mongoose.model("Image",{ 
-   
     age: Number,
-    kesukaan: [String], // Store an array of kesukaan
+    kesukaan: [], // Store an array of kesukaan
     name: String,
     images: [String]
-  
-
-
   // Store an array of image filenames
   });
 

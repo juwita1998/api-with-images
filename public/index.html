@@ -18,20 +18,25 @@
                 .then((response) => response.json())
                 .then((data) => {
                       
-                  
-                        
-                          
+                    data.forEach((item)=>{
                         const h1 = document.createElement("h1");
-                        h1.textContent = `Name: ${data[1].name}, Age: ${data[1].age}`;
+                        h1.textContent = `Name: ${item.name}, Age: ${item.age}`;
                          imageContainer.appendChild(h1)
                            
-                          
-                            const img = document.createElement("img");
-                        img.src = `${data[0].images[0]}`; // Display the first image from the array
+                             item.images.forEach((gambar)=>{
+                                const img = document.createElement("img");
+                        img.src = `${gambar}`; // Display the first image from the array
                         
                        
                         
                         imageContainer.appendChild(img);
+                             })
+                           
+
+                    })
+                        
+                          
+                       
                           
                       
                           
